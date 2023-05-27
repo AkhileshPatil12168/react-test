@@ -829,6 +829,7 @@ restaurants = [
     },
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
+  
 ];
 
 // for (let obj of restaurants) {
@@ -841,3 +842,5 @@ restaurants = [
  
 // }
 //console.log(restaurants[0])
+
+module.exports = restaurants
