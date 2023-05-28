@@ -1,4 +1,4 @@
-restaurants = [
+resList = [
   {
     info: {
       id: "450520",
@@ -829,18 +829,15 @@ restaurants = [
     },
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
-  
 ];
 
 // for (let obj of restaurants) {
-   
 
 //         for(let key in obj.info ){
 //         console.log(obj.info[key])
 //         }
-    
- 
+
 // }
 //console.log(restaurants[0])
 
-module.exports = restaurants
+export default resList
