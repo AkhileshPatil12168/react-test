@@ -1,10 +1,12 @@
+
+
 const ShimmerCard = () => {
   return (
     <div className="resCard">
-      <img src=""></img>
+      <div id="sImg"></div>
       <h2></h2>
       <h3></h3>
-      <h4>rating : </h4>
+      <h4></h4>
     </div>
   );
 };
@@ -18,8 +20,13 @@ const ShimmerBody = () => {
           search
         </button>
       </div>
-      <div className="resList"></div>
-      <ShimmerCard />
+      <div className="resList">
+        {Array(10)
+          .fill("")
+          .map((s) => (
+            <ShimmerCard key={ Math.random()}/>
+          ))}
+      </div>
     </>
   );
 };
