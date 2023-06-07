@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Title = () => {
   return (
-    <a href="/">
+    <Link to="/">
       <img
         src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-healthy-food-logo-fork-with-green-leaves-decoration-vector-png-image_3773921.jpg"
         alt="just j1"
         id="imglogo"
       ></img>
-    </a>
+    </Link>
   );
 };
 
@@ -19,9 +20,12 @@ const Header = () => {
       <div className="navItem">
         <Title />
         <ul>
-          <li>about</li>
-          <li>contact</li>
-          <li>cart</li>
+          <Link to="/about"><li>about</li></Link>
+          <Link to="/contact"><li>contact</li></Link>
+          <Link to="cart"><li>cart</li></Link>
+
+
+
         </ul>
 
         {isLoggedIn ? (

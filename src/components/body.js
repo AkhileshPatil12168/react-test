@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import resList from "../data/data";
 
 import ShimmerBody from "./ShimmerUi";
+import { Link } from "react-router-dom";
 
 const link =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
@@ -66,7 +67,7 @@ const Body = () => {
     );
     const jsonData = await data.json();
     //console.log(jsonData.data.cards)
-    console.log(jsonData.data.cards[7].data.data);
+    //console.log(jsonData.data.cards[7].data.data);
     setRestaurant(jsonData?.data?.cards);
     setFilteredRestaurants(jsonData?.data?.cards);
   }
@@ -99,10 +100,11 @@ const Body = () => {
       <div className="resList">
         {filteredRestaurants.map((restorunt) => {
           return (
-            <Card
+            <Link to={"/restaurant/" + restorunt?.data?.data?.id} key={restorunt?.data?.data?.id || Math.random()}><Card
               {...restorunt?.data?.data}
-              key={restorunt?.data?.data?.id || Math.random()}
-            />
+
+            /></Link>
+
           );
         })}
       </div>
