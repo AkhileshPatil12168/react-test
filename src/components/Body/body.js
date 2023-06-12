@@ -6,7 +6,6 @@ import ShimmerBody from "../ShimmerUi";
 import { filterData } from "../../utils/filterData";
 import useOnline from "../../utils/useOnline";
 
-
 const link =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
@@ -33,8 +32,6 @@ const Card = (props) => {
     );
   }
 };
-
-
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -64,9 +61,9 @@ const Body = () => {
     setFilteredRestaurants(jsonData?.data?.cards);
   }
 
-  const onlineStatus = useOnline()
-  if(!onlineStatus){
-    return (<h1>you are offline</h1>)
+  const onlineStatus = useOnline();
+  if (!onlineStatus) {
+    return <h1>you are offline</h1>;
   }
 
   return restaurants.length === 0 ? (
@@ -97,11 +94,12 @@ const Body = () => {
       <div className="resList">
         {filteredRestaurants.map((restorunt) => {
           return (
-            <Link to={"/restaurant/" + restorunt?.data?.data?.id} key={restorunt?.data?.data?.id || Math.random()}><Card
-              {...restorunt?.data?.data}
-
-            /></Link>
-
+            <Link
+              to={"/restaurant/" + restorunt?.data?.data?.id}
+              key={restorunt?.data?.data?.id || Math.random()}
+            >
+              <Card {...restorunt?.data?.data} />
+            </Link>
           );
         })}
       </div>
