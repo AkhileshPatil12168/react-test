@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import resList from "../data/data";
-
-import ShimmerBody from "./ShimmerUi";
+import resList from "../../data/data";
 import { Link } from "react-router-dom";
+
+import ShimmerBody from "../ShimmerUi";
+import { filterData } from "../../utils/filterData";
+import useOnline from "../../utils/useOnline";
+
 
 const link =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
@@ -31,18 +34,7 @@ const Card = (props) => {
   }
 };
 
-function filterData(serchText, restaurant) {
-  let data = restaurant.filter((res) => {
-    if (!res?.data?.data?.message) {
-      //console.log(res?.data?.data?.name)
-      return res?.data?.data?.name
-        .toLowerCase()
-        .includes(serchText.toLowerCase());
-    }
-  });
-  console.log(data);
-  return data;
-}
+
 
 const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -70,6 +62,11 @@ const Body = () => {
     //console.log(jsonData.data.cards[7].data.data);
     setRestaurant(jsonData?.data?.cards);
     setFilteredRestaurants(jsonData?.data?.cards);
+  }
+
+  const onlineStatus = useOnline()
+  if(!onlineStatus){
+    return (<h1>you are offline</h1>)
   }
 
   return restaurants.length === 0 ? (
