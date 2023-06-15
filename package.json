@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "home-router":"parcel index.html --host  192.168.1.11",
-    "start": "parcel index.html",
+    "start": "parcel index.html --port 4000",
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

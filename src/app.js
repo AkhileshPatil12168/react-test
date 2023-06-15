@@ -15,6 +15,7 @@ import Menue from "./components/Body/menue";
 
 import Footer from "./components/Footer/footer";
 
+import Backend from "./components/test";
 const AppLayout = () => {
   return (
     <React.Fragment>
@@ -50,6 +51,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/restaurant/:id",
         element:<Menue/>
+      },
+      {
+        path:"/backend",
+        element:<Backend/>
       }
     ]
 
